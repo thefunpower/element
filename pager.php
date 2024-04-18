@@ -27,11 +27,7 @@ class pager{
 		    this.".$where.".page = e;
 		    this.".$method."();
 		");
-		$str = '';
-		if($is_page){
-			$str = "app.".$total." = res.total;";
-		}
- 
+                $str = "app.".$total." = res.total;";
 		$vue->method($method,"
 			ajax('".$url."',this.".$where.",function(res){
 				app.".$ele." = res.data;

@@ -1,0 +1,23 @@
+{
+    "name": "thefunpower/element",
+    "type": "library",
+    "description": "vue element table form",
+    "keywords": ["php"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "kenken"
+        }
+    ],
+    "require": {  
+        
+    },
+    "autoload": { 
+        "files": [ 
+            "./helper.php"
+        ],
+        "psr-4": {
+            "element\\": "./"
+        }
+    }
+}

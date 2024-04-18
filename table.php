@@ -2,9 +2,6 @@
 
 namespace element;
 
-/**
-* 创建表格
-*/
 class table
 {
     public static function create($arr = [])
@@ -16,26 +13,11 @@ class table
         }
         return $str;
     }
-
     public static function open($arr = [])
     {
         $arr['type'] = $arr['type'] ?: 'small';
         return "<el-table " . element_to_str($arr)." border>\n";
     }
-    /**
-    * [
-    * 'prop'=>'title',
-    * 'width'=>'100',
-    * 'label'=>'标题',
-    * 'tpl'=>[
-    * [
-    * 'name'=>'button',
-    * 'label'=>'编辑',
-    * '@click'=>''
-    * ]
-    * ]
-    * ]
-    */
     public static function column($arr = [])
     {
         $tpl = $arr['tpl'];
@@ -51,7 +33,6 @@ class table
         $str .= "</el-table-column>\n";
         return $str;
     }
-
     public static function element($arr = [])
     {
         $name = $arr['name'];
@@ -59,21 +40,23 @@ class table
         unset($arr['name'],$arr['label']);
         $arr['type'] = $arr['type'] ?: 'text';
         $arr['size'] = $arr['size'] ?: 'small';
-        return '<el-'.$name.' '. element_to_str($arr).'>'.$label.'</el-'.$name.'>'."\n";
+        return '<el-'.$name.' '. element_to_str($arr).'>'.self::scope($label).'</el-'.$name.'>'."\n";
     }
-
+    public static function scope($label)
+    {
+        if(strpos($label, 'scope.') !== false && strpos($label, '{') === false) {
+            $label = "{{".$label."}}";
+        }
+        return $label;
+    }
     public static function span($arr = [])
     {
         $name = $arr['name'];
         $label = $arr['label'];
         unset($arr['name'],$arr['label']);
-        if(strpos($label, 'scope.') !== false && strpos($label, '{') === false) {
-            $label = "{{".$label."}}";
-        }
+        $label = self::scope($label);
         return '<span '. element_to_str($arr).'>'.$label.'</span>'."\n";
     }
-
-
     public static function close()
     {
         return "</el-table>";

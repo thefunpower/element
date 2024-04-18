@@ -10,8 +10,34 @@
 
 # 使用
 
-表格
+搜索 
+
 ~~~
+<?php 
+echo element("filter",[ 
+    'data'=>'list',
+    'url'=>'/video/group/get_pager',
+    'is_page'=>true,
+    [
+        'type'=>'input','name'=>'title',
+        'attr_element'=>[
+            'placeholder'=>'标题',
+        ],
+    ],
+    [
+        'type'=>'input','name'=>'title',
+        'attr_element'=>[
+            'placeholder'=>'标题',
+        ],
+    ], 
+]); 
+?>
+~~~
+
+表格
+
+~~~
+<?php 
 echo element('table',[
     ['name'=>'open',':data'=>'list',':height'=>'height'],
     ['name'=>'column','prop'=>'title','label'=>'名称','width'=>''],
@@ -24,6 +50,17 @@ echo element('table',[
     ],
     ['name'=>'close'],
 ]);
+?> 
+~~~
+
+分页
+~~~
+<?php 
+echo element("pager",[ 
+    'data'=>'list',
+    'url'=>'/video/group/get_pager', 
+]); 
+?> 
 ~~~
 
 表单

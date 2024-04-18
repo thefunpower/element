@@ -7,8 +7,7 @@ class form{
 	public static function create($arr = []){ 
 		global $vue;
 	    $vue->add_date();   
-		$str = '';
-		self::$model = $open['model']?:'form'; 
+		$str = ''; 
 		foreach($arr as $v){ 
 			if($v['type'] == 'open'){
 				$str .= self::open($v);

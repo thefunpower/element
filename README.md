@@ -5,7 +5,7 @@
 在composer.json中添加
 
 ~~~
-"thefunpower/element": "dev-main" 
+composer require thefunpower/element
 ~~~
 
 # 使用
@@ -18,18 +18,13 @@ echo element("filter",[
     'data'=>'list',
     'url'=>'/video/group/get_pager',
     'is_page'=>true,
+    'init'=>true,
     [
         'type'=>'input','name'=>'title',
         'attr_element'=>[
-            'placeholder'=>'标题',
+            'placeholder'=>'名称',
         ],
     ],
-    [
-        'type'=>'input','name'=>'title',
-        'attr_element'=>[
-            'placeholder'=>'标题',
-        ],
-    ], 
 ]); 
 ?>
 ~~~
@@ -59,6 +54,7 @@ echo element('table',[
 echo element("pager",[ 
     'data'=>'list',
     'url'=>'/video/group/get_pager', 
+    'reload_data'=>[]
 ]); 
 ?> 
 ~~~

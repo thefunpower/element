@@ -159,21 +159,6 @@ public function autocomplete(){
 }
 ~~~
 
-sku
-
-~~~
-think_vue_media($vue,"
-if(app.upload_spec_field == 'sku'){
-    for(let i in dd){
-        if(dd[i] && dd[i].url){
-            this.form[this.upload_spec_field][this.upload_spec_index].img = dd[i].url;   
-            return;       
-        } 
-    }   
-}"," 
-    this.selected_media_use_muit = false; 
-");
-~~~
 
 ### 开源协议 
 

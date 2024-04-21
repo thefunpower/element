@@ -6,5 +6,8 @@
         <el-option label="<?=$vv['label']?>" value="<?=$vv['value']?>"></el-option>
         <?php }
         }?>
+        <?php if($v['inner']) {
+            echo $v['inner'];
+        }?>
     </el-select>
 </el-form-item>

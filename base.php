@@ -85,7 +85,7 @@ class base
 			");
             return '<el-pagination class="mb5" background layout="total,prev, pager, next" :page-size="'.$where.'.per_page"
 	            :current-page="'.$where.'.page" @size-change="'.$size_change.'" @current-change="'.$current_change.'"
-	            :total="'.$total.'">
+	            :total="'.$total.'"  v-if=" '.$total.' > 0">
 	        </el-pagination>';
         }
     }

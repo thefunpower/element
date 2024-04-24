@@ -101,8 +101,7 @@ class form
     {
         return [
             ['label' => 'input','element' => 'input'],
-            ['label' => 'text','element' => 'text'],
-            //['label'=>'editor','element'=>'editor'],
+            ['label' => 'text','element' => 'text'], 
             ['label' => 'select','element' => 'select','multiple' => true,
               'value' => [
                   ['label' => '选项1','value' => '1'],
@@ -111,12 +110,7 @@ class form
             ['label' => 'checkbox','element' => 'checkbox','default' => 1,'value' => [
               ['label' => '状态1','value' => '1'],
               ['label' => '状态2','value' => '2'],
-            ]],
-            ['label' => 'status','element' => 'status','value' => [
-                ['label' => 'test','value' => 1],
-                ['label' => 'test2','value' => 2],
-            ],],
-
+            ]], 
             ['label' => 'number','element' => 'number'],
             ['label' => 'cascader','element' => 'cascader','url' => '/form/test/cascader'],
             ['label' => 'color','element' => 'color'],
@@ -125,12 +119,11 @@ class form
                   'step' => '00:15',
                   'end'  => '18:30'
               ] ],
-            ['label' => 'datetime','element' => 'datetime'],
-            ['label' => 'address','element' => 'address'],
+            ['label' => 'datetime','element' => 'datetime'], 
             ['label' => 'upload','element' => 'upload'],
             ['label' => 'autocomplete','element' => 'autocomplete'],
-            ['label' => 'attr','element' => 'attr'],
-            ['label' => 'sku','element' => 'sku'],
+            //['label' => 'attr','element' => 'attr'],
+            //['label' => 'sku','element' => 'sku'],
         ];
     }
     /**

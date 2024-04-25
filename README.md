@@ -139,7 +139,7 @@ echo element('form',[
         'mime'=>'jpg',
         'multiple', 
     ],
-    ['name'=>'close']
+    ['type'=>'close']
 ]);
 ~~~
 

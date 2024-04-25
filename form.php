@@ -112,6 +112,7 @@ class form
               ['label' => '状态2','value' => '2'],
             ]], 
             ['label' => 'number','element' => 'number'],
+            ['label' => 'radio','element' => 'radio'],
             ['label' => 'cascader','element' => 'cascader','url' => '/form/test/cascader'],
             ['label' => 'color','element' => 'color'],
             ['label' => 'time','element' => 'time','options' => [
@@ -122,8 +123,8 @@ class form
             ['label' => 'datetime','element' => 'datetime'], 
             ['label' => 'upload','element' => 'upload'],
             ['label' => 'autocomplete','element' => 'autocomplete'],
-            //['label' => 'attr','element' => 'attr'],
-            //['label' => 'sku','element' => 'sku'],
+            ['label' => 'attr','element' => 'attr'],
+            ['label' => 'sku','element' => 'sku'],
         ];
     }
     /**

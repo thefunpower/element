@@ -159,6 +159,31 @@ public function autocomplete(){
 }
 ~~~
 
+# 单独使用
+
+## cascader 
+
+~~~
+<?php 
+$url = '/form/city/index'; 
+$name = 'address_top';
+$model = 'form';
+$attr_element = ":props={value:'id',label:'label'}";
+include VEN_ELEMENT_FORM_PATH.'/cascader.php';
+?> 
+<el-input v-model="form.address" placeholder="详细地址"></el-input>
+~~~
+
+数据处理
+~~~
+$address_top = $res['address_top'];
+$res['address_arr'] = [];
+if($address_top){
+    $res['address_arr'] = element\form::get_city_value($address_top);
+} 
+~~~
+
+
 
 ### 开源协议 
 

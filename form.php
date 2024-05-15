@@ -171,6 +171,33 @@ class form
             return $list;
         }
     }
+    /**
+    * 根据城市地址库数组key，返回 value
+    */
+    public static function get_city_value($arr = []){
+        $list = [];
+        $d = self::get_city(); 
+        foreach($d as &$v){
+            $v['id'] = (string)$v['id'];
+            if($v['id'] == $arr[0]){
+                $list[] = $v['name'];
+                foreach($v['children'] as &$v1){
+                    $v1['id'] = (string)$v1['id'];
+                    if($v1['id'] == $arr[1]){
+                        $list[] = $v1['name'];
+                        foreach($v1['children'] as &$v2){ 
+                            $v2['id'] = (string)$v2['id'];
+                            if($v2['id'] == $arr[2]){
+                                $list[] = $v2['name'];
+                            }
+                        }
+                    } 
+                }
+            } 
+        }
+        return $list;
+    }
+    
     public static function open($arr = [])
     {
         unset($arr['model'],$arr['name']);

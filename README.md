@@ -51,7 +51,7 @@ echo element('table',[
 点击表格展开后显示表格或HTML
 
 ~~~
-<?php
+<?php 
 echo element('table', [
     ['name' => 'open',':data' => 'load_list',':height' => 'height'],
     ['name' => 'column','prop' => 'order_num','label' => '',
@@ -64,7 +64,16 @@ echo element('table', [
                 ['name' => 'column','prop' => 'sale_order_num','label' => '销售单号','width' => '200'],
                 ['name' => 'column','prop' => 'customer_name','label' => '客户','width' => ''],
                 ['name' => 'column','prop' => 'product_name','label' => '产品名称','width' => '200'],
-                ['name' => 'column','prop' => 'product_num','label' => '产品编号','width' => '200'],
+                ['name' => 'column','prop' => 'product_num','label' => '产品编号','width' => '200', 
+                    "tpl"=>[
+                        [
+                            'type'=>'html',
+                            "html"=>"
+                               <span :style='\"background:\"+scope.row.product_num_color'> {{scope.row.product_num}}</span>
+                            "
+                        ]
+                    ]
+                ],
                 ['name' => 'column','prop' => 'product_ph','label' => '批号','width' => '200'],
                 ['name' => 'column','prop' => 'product_unit','label' => '单位','width' => '80'], 
                 ['name' => 'close'],

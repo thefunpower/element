@@ -25,11 +25,19 @@ class table
         $str = "<el-table-column " . element_to_str($arr).">\n";
         if($tpl) {
             $str .= "<template slot-scope='scope'>\n";
-            foreach($tpl as $k => $v) {
-                if($v['type'] == 'html'){
-                    $str .= $v['html'];
+            if($tpl['type']){
+                if($tpl['type'] == 'html'){
+                    $str .= $tpl['html'];
                 }else{
-                    $str .= self::element($v);
+                    $str .= self::element($tpl);
+                }
+            }else{
+                foreach($tpl as $k => $v) {
+                    if($v['type'] == 'html'){
+                        $str .= $v['html'];
+                    }else{
+                        $str .= self::element($v);
+                    }
                 }
             }
             $str .= "</template>\n";

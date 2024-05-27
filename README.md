@@ -89,6 +89,17 @@ echo element('table', [
 
 ~~~
 
+其中`tpl`也支持直接写`type`
+
+~~~
+"tpl"=>[ 
+    'type'=>'html',
+    "html"=>"
+       <span :style='\"background:\"+scope.row.product_num_color'> {{scope.row.product_num}}</span>
+    " 
+]
+~~~
+
 分页
 ~~~
 <?php 

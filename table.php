@@ -26,7 +26,11 @@ class table
         if($tpl) {
             $str .= "<template slot-scope='scope'>\n";
             foreach($tpl as $k => $v) {
-                $str .= self::element($v);
+                if($v['type'] == 'html'){
+                    $str .= $v['html'];
+                }else{
+                    $str .= self::element($v);
+                }
             }
             $str .= "</template>\n";
         }

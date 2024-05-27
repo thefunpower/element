@@ -93,7 +93,7 @@ echo element('table', [
 
 ~~~
 "tpl"=>[ 
-    'type'=>'html',
+    //'type'=>'html', //此行可以没有
     "html"=>"
        <span :style='\"background:\"+scope.row.product_num_color'> {{scope.row.product_num}}</span>
     " 

@@ -53,7 +53,7 @@ echo element('table',[
 ~~~
 <?php 
 echo element('table', [
-    ['name' => 'open',':data' => 'load_list',':height' => 'height'],
+    ['name' => 'open',':data' => 'load_list',':height' => 'height','default-expand-all'],
     ['name' => 'column','prop' => 'order_num','label' => '',
      'type' => 'expand',
      'tpl'=> [

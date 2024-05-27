@@ -48,6 +48,38 @@ echo element('table',[
 ?> 
 ~~~
 
+点击表格展开后显示表格或HTML
+
+~~~
+<?php
+echo element('table', [
+    ['name' => 'open',':data' => 'load_list',':height' => 'height'],
+    ['name' => 'column','prop' => 'order_num','label' => '',
+     'type' => 'expand',
+     'tpl'=> [
+       [ 
+            "type"=>'html', 
+            "html"=>element('table', [
+                ['name' => 'open',':data' => 'scope.row.detail'],
+                ['name' => 'column','prop' => 'sale_order_num','label' => '销售单号','width' => '200'],
+                ['name' => 'column','prop' => 'customer_name','label' => '客户','width' => ''],
+                ['name' => 'column','prop' => 'product_name','label' => '产品名称','width' => '200'],
+                ['name' => 'column','prop' => 'product_num','label' => '产品编号','width' => '200'],
+                ['name' => 'column','prop' => 'product_ph','label' => '批号','width' => '200'],
+                ['name' => 'column','prop' => 'product_unit','label' => '单位','width' => '80'], 
+                ['name' => 'close'],
+            ]) 
+        ]
+     ]
+    ],
+    ['name' => 'column','prop' => 'order_num','label' => '入库单号','width' => '200'],
+    ['name' => 'column','prop' => 'num','label' => '数量','width' => ''],
+    ['name' => 'close'],
+]);
+?>
+
+~~~
+
 分页
 ~~~
 <?php 

@@ -26,7 +26,7 @@ class table
         if($tpl) {
             $str .= "<template slot-scope='scope'>\n";
             if($tpl['type']){
-                if($tpl['type'] == 'html'){
+                if($tpl['type'] == 'html' || $tpl['html']){
                     $str .= $tpl['html'];
                 }else{
                     $str .= self::element($tpl);

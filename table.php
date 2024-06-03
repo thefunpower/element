@@ -52,6 +52,10 @@ class table
         unset($arr['name'],$arr['label']);
         $arr['type'] = $arr['type'] ?: 'text';
         $arr['size'] = $arr['size'] ?: 'small';
+        $html = $arr['html'];
+        if($html){ 
+            return $html;
+        }
         return '<el-'.$name.' '. element_to_str($arr).'>'.self::scope($label).'</el-'.$name.'>'."\n";
     }
     public static function scope($label)

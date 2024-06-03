@@ -73,8 +73,8 @@ if($multiple){
                     删除</div>
                 <?php }else{?>
                 <span class="link hand" :title="<?=$model?>.<?=$name?>" v-if="get_ext(<?=$model?>.<?=$name?>) == 'pdf'"
-                    @click="open_pdf(<?=$model?>.<?=$name?>)">
-                    PDF文件
+                    @click="open_pdf(<?=$model?>.<?=$name?>)" >
+                    <img @click="open_pdf(<?=$model?>.<?=$name?>)" src="/img/pdf.png" style="width:100px;height: 100px;">
                 </span>
 
                 <span class="link hand" :title="<?=$model?>.<?=$name?>"

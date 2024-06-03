@@ -77,21 +77,33 @@ if($multiple){
                     <img @click="open_pdf(<?=$model?>.<?=$name?>)" src="/img/pdf.png" style="width:100px;height: 100px;">
                 </span>
 
+                <span class="link hand" :title="<?=$model?>.<?=$name?>" v-if="get_ext(<?=$model?>.<?=$name?>) == 'xls' || get_ext(<?=$model?>.<?=$name?>) == 'xlsx'"
+                    @click="open_office(<?=$model?>.<?=$name?>)" >
+                    <img @click="open_office(<?=$model?>.<?=$name?>)" src="/img/xls.png" style="width:100px;height: 100px;">
+                </span>
+
+
+                <span class="link hand" :title="<?=$model?>.<?=$name?>" v-if="get_ext(<?=$model?>.<?=$name?>) == 'doc' || get_ext(<?=$model?>.<?=$name?>) == 'docx'"
+                    @click="open_office(<?=$model?>.<?=$name?>)" >
+                    <img @click="open_office(<?=$model?>.<?=$name?>)" src="/img/doc.png" style="width:100px;height: 100px;">
+                </span>
+
+                <span class="link hand" :title="<?=$model?>.<?=$name?>" v-if="get_ext(<?=$model?>.<?=$name?>) == 'ppt' || get_ext(<?=$model?>.<?=$name?>) == 'pptx'"
+                    @click="open_office(<?=$model?>.<?=$name?>)" >
+                    <img @click="open_office(<?=$model?>.<?=$name?>)" src="/img/ppt.png" style="width:100px;height: 100px;">
+                </span>
+
+
                 <span class="link hand" :title="<?=$model?>.<?=$name?>"
                     v-else-if="get_ext(<?=$model?>.<?=$name?>) == 'png' ||get_ext(<?=$model?>.<?=$name?>) == 'jpg' || get_ext(form.<?=$name?>) == 'gif' || get_ext(<?=$model?>.<?=$name?>) == 'webp' || get_ext(<?=$model?>.<?=$name?>) == 'bmp' || get_ext(form.<?=$name?>) == 'jpeg'     ">
                     <img :src="<?=$model?>.<?=$name?>" style="width:100px;height: 100px;">
                 </span>
-
-                <span class="link hand" :title="<?=$model?>.<?=$name?>"
-                    v-else-if="get_ext(<?=$model?>.<?=$name?>) == 'doc' || get_ext(<?=$model?>.<?=$name?>) == 'docs'">
-                    文档
-                </span>
+ 
 
                 <span class="link hand" :title="<?=$model?>.<?=$name?>"
                     v-else-if="get_ext(<?=$model?>.<?=$name?>) == 'mp4' || get_ext(<?=$model?>.<?=$name?>) == 'webp'">
                     <video :src="form.<?=$name?>" style="width:100px;height: 100px;background: #000;"></video>
-                </span>
-                <span v-else :title="<?=$model?>.<?=$name?>">文件</span>
+                </span> 
                 <div @click="<?=$upload_remove['method']?>(0)" class="remove_link hand"
                     style="position: absolute;bottom: 0px;text-align: center;color: #FFF;width: 100%;font-size: 10px;">
                     删除</div>

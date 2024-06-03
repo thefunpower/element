@@ -24,6 +24,11 @@ function element_to_str($arr)
     return $str;
 }
 
+function element_vue(){
+    element_open_pdf();
+    element_open_office();
+}
+
 function element_open_pdf(){
     ?>
 <div v-if="is_pdf" style="position:fixed;top: 0;left:-20px;width:70%;height: 100vh; z-index: 99999;">
@@ -40,5 +45,13 @@ $vue->method("open_pdf(url)","
     this.is_pdf = true;
     this.pdf_url = url;
 "); 
+
+}
+
+function element_open_office(){
+    global $vue;
+    $vue->method("open_office(url)","
+        window.open('https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(url),'_blank');
+    ");
 
 }

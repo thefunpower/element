@@ -36,12 +36,17 @@ class base
             }
         }
         if($filter_pager == 'filter') {
+            $method_search = $method."_search";
+            $vue->method($method_search,"
+                this.".$where.".page = 1;
+                this.".$method."();
+            ");
             foreach($arr as &$vv) {
                 $change = "change";
                 if($vv['type'] == 'input') {
                     $change = "input";
                 }
-                $vv['attr_element']['@'.$change] = $method."()";
+                $vv['attr_element']['@'.$change] = $method_search."()";
             }
             form::$model = $where;
             array_unshift($arr, ['type' => 'open',":inline" => true ]);

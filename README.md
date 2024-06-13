@@ -8,6 +8,7 @@
 composer require thefunpower/element
 ~~~
 
+
 # 使用
 
 搜索 
@@ -210,6 +211,13 @@ public function autocomplete(){
     return json($arr);
 }
 ~~~
+
+# JS
+
+~~~
+element\base::$js = "alert(1);";
+~~~
+
 
 # 单独使用
 

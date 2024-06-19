@@ -133,7 +133,8 @@ echo element('form',[
         'type'=>'tag','name'=>'tag','label'=>'tag', 
     ],
     [
-        'type'=>'sku','name'=>'is_spec,sku','label'=>'sku',         
+        'type'=>'sku','name'=>'is_spec,sku','label'=>'sku', 
+        'attr'=>['image','stock','status'],        
         'js'=>"app.add_media('upload_spec');"
     ],
     [

@@ -252,10 +252,14 @@ if(app.upload_spec_field){
     console.log(dd);
     for(let i in dd){
         if(dd[i] && dd[i].url){
-            app.form[app.upload_spec_field][app.upload_spec_index].img = dd[i].url;    
+            app.form[app.upload_spec_field][app.upload_spec_index].img = dd[i].url;
+            app.upload_spec_field = '';
+            app.upload_spec_index = '';    
             return;
         } 
-    }  
+    } 
+    app.upload_spec_field = '';
+    app.upload_spec_index = ''; 
     return;
 } 
 ");

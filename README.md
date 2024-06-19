@@ -244,6 +244,24 @@ if($address_top){
 } 
 ~~~
 
+## sku 
+
+~~~
+think_vue_media($vue," 
+if(app.upload_spec_field){
+    console.log(dd);
+    for(let i in dd){
+        if(dd[i] && dd[i].url){
+            app.form[app.upload_spec_field][app.upload_spec_index].img = dd[i].url;    
+            return;
+        } 
+    }  
+    return;
+} 
+");
+~~~
+
+
 
 
 ### 开源协议 

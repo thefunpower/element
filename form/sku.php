@@ -1,10 +1,18 @@
-<el-form-item label="<?=$name?:'规格'?>">
-
-    <div style="display: flex;margin-top: 15px;">
-        <el-radio v-model="<?=$model?>.spec_type" label="1">单规格</el-radio>
-        <el-radio style="margin-left: 10px;" v-model="<?=$model?>.spec_type" label="2">多规格</el-radio>
+<?php 
+$select_name ='spec_type';
+if(strpos($name,',') !== false){
+    $arr = explode(",",$name);
+    $select_name = $arr[0];
+    $name = $arr[1];
+} 
+?>
+<el-form-item label="<?=$label?>">
+<?=$select_name?>
+    <div style="display: flex;margin-top: 15px;"> 
+        <el-radio v-model="<?=$model?>.<?=$select_name?>" label="1">单规格</el-radio>
+        <el-radio style="margin-left: 10px;" v-model="<?=$model?>.<?=$select_name?>" label="2">多规格</el-radio>
     </div>
-    <div v-if="<?=$model?>.spec_type == 1">
+    <div v-if="<?=$model?>.<?=$select_name?> == 1">
         <el-form label-position="top" @submit.native.prevent label-width="180px" style="padding-right:20px;">
             <el-form-item label="划线价" required>
                 <el-input style="width:200px" v-model="<?=$model?>.price_mart" type="number"></el-input>
@@ -18,7 +26,7 @@
         </el-form>
     </div>
 
-    <table v-if="<?=$model?>.spec_type == 2" style="width:100%;" class="pure-table pure-table-bordered">
+    <table v-if="<?=$model?>.<?=$select_name?> == 2" style="width:100%;" class="pure-table pure-table-bordered">
         <thead>
             <tr>
                 <th>规格名(<span @click="push_spec('<?=$name?>')" class="hand link">+</span>)</th>

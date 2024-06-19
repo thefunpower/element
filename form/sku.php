@@ -6,8 +6,7 @@ if(strpos($name,',') !== false){
     $name = $arr[1];
 } 
 ?>
-<el-form-item label="<?=$label?>">
-<?=$select_name?>
+<el-form-item label="<?=$label?>"> 
     <div style="display: flex;margin-top: 15px;"> 
         <el-radio v-model="<?=$model?>.<?=$select_name?>" label="1">单规格</el-radio>
         <el-radio style="margin-left: 10px;" v-model="<?=$model?>.<?=$select_name?>" label="2">多规格</el-radio>

@@ -30,6 +30,9 @@ echo element("filter",[
 ?>
 ~~~
 
+其中`data`为`list`,将自动触发 `load_filter_list()` 
+
+
 表格
 
 ~~~

@@ -120,7 +120,8 @@ echo element('form',[
     ['type'=>'open','model'=>'form','label-width'=>'180px'],
     [
         'type'=>'input','name'=>'title','label'=>'标题',
-        'attr'=>['title'=>'演示标题'],
+        'attr'=>['required'], 
+        'attr_element'=>['placeholder'=>'演示标题'],
     ],
     ['type'=>'close']
 ]);
@@ -133,7 +134,8 @@ echo element('form',[
     ['type'=>'open','model'=>'form','label-width'=>'180px'],
     [
         'type'=>'input','name'=>'title','label'=>'标题',
-        'attr'=>['title'=>'演示标题'],
+        'attr'=>['required'], 
+        'attr_element'=>['placeholder'=>'演示标题'],
     ],
     [
         'type'=>'color','name'=>'aa31','label'=>'color', 

@@ -113,7 +113,22 @@ echo element("pager",[
 ~~~
 
 表单
+
 ~~~
+element\form::$model = 'form';
+echo element('form',[ 
+    ['type'=>'open','model'=>'form','label-width'=>'180px'],
+    [
+        'type'=>'input','name'=>'title','label'=>'标题',
+        'attr'=>['title'=>'演示标题'],
+    ],
+    ['type'=>'close']
+]);
+~~~
+
+
+~~~
+element\form::$model = 'form';
 echo element('form',[ 
     ['type'=>'open','model'=>'form','label-width'=>'180px'],
     [

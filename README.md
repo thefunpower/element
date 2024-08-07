@@ -109,6 +109,7 @@ echo element('table', [
 <?php 
 echo element("pager",[ 
     'data'=>'list',
+    'per_page'=>15,
     'url'=>'/video/group/get_pager', 
     'reload_data'=>[]
 ]); 

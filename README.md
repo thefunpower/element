@@ -133,6 +133,8 @@ echo element('form',[
 
 
 ~~~
+<el-form ref="form"  label-width="180px" label-position='top'>
+<?php 
 element\form::$model = 'form';
 echo element('form',[ 
     ['type'=>'open','model'=>'form','label-width'=>'180px'],
@@ -216,7 +218,10 @@ echo element('form',[
     ],
     ['type'=>'close']
 ]);
+?>
+</el-form>
 ~~~
+ 
 
 ajax
 

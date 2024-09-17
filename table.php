@@ -15,7 +15,7 @@ class table
     }
     public static function open($arr = [])
     {
-        $arr['type'] = $arr['type'] ?: 'small';
+        $arr['type'] = $arr['type'] ?? 'small';
         return "<el-table " . element_to_str($arr)." border>\n";
     }
     public static function column($arr = [])

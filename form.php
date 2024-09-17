@@ -31,14 +31,14 @@ class form
     public static function element($v = [])
     {
         global $vue;
-        $file = $v['file'] ?: __DIR__.'/form/'.$v['type'].'.php';
+        $file = $v['file'] ?? __DIR__.'/form/'.$v['type'].'.php';
         $content = '';
         if(file_exists($file)) {
             $model = self::$model;
             $label = $v['label'];
             $name  = $v['name'];
-            $attr  = $v['attr'];
-            $js  = $v['js'];
+            $attr  = $v['attr']??[];
+            $js  = $v['js']??'';
             $attr_element      = $v['attr_element'];
             $attr_element_pre  = $v['attr_element_pre'];
             $attr_element_next = $v['attr_element_next'];

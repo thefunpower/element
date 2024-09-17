@@ -20,7 +20,7 @@ class table
     }
     public static function column($arr = [])
     {
-        $tpl = $arr['tpl'];
+        $tpl = $arr['tpl']??[];
         unset($arr['tpl']);
         $str = "<el-table-column " . element_to_str($arr).">\n";
         if($tpl) {
@@ -50,8 +50,8 @@ class table
         $name = $arr['name'];
         $label = $arr['label'];
         unset($arr['name'],$arr['label']);
-        $arr['type'] = $arr['type'] ?: 'text';
-        $arr['size'] = $arr['size'] ?: 'small';
+        $arr['type'] = $arr['type'] ?? 'text';
+        $arr['size'] = $arr['size'] ?? 'small';
         $html = $arr['html'];
         if($html){ 
             return $html;

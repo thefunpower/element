@@ -129,6 +129,11 @@ echo element("pager",[
 ?> 
 ~~~
 
+vue3 
+~~~ 
+\element\table::$scope = '#default';
+~~~
+
 表单
 
 ~~~

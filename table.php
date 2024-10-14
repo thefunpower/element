@@ -4,6 +4,7 @@ namespace element;
 
 class table
 {
+    public static $scope = 'slot-scope';
     public static function create($arr = [])
     {
         $str = '';
@@ -24,7 +25,7 @@ class table
         unset($arr['tpl']);
         $str = "<el-table-column " . element_to_str($arr).">\n";
         if ($tpl) {
-            $str .= "<template slot-scope='scope'>\n";
+            $str .= "<template ".self::$scope."='scope'>\n";
             if (isset($tpl['type'])) {
                 if ($tpl['type'] == 'html' || $tpl['html']) {
                     $str .= $tpl['html'];

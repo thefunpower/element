@@ -7,7 +7,7 @@ class table
     public static function create($arr = [])
     {
         $str = '';
-        foreach($arr as $k => $v) {
+        foreach ($arr as $k => $v) {
             $name = $v['name'];
             $str .= self::$name($v);
         }
@@ -20,22 +20,22 @@ class table
     }
     public static function column($arr = [])
     {
-        $tpl = $arr['tpl']??[];
+        $tpl = $arr['tpl'] ?? [];
         unset($arr['tpl']);
         $str = "<el-table-column " . element_to_str($arr).">\n";
-        if($tpl) {
+        if ($tpl) {
             $str .= "<template slot-scope='scope'>\n";
-            if(iseet($tpl['type'])){
-                if($tpl['type'] == 'html' || iseet($tpl['html'])){
-                    $str .= $tpl['html']??'';
-                }else{
+            if (isset($tpl['type'])) {
+                if ($tpl['type'] == 'html' || $tpl['html']) {
+                    $str .= $tpl['html'];
+                } else {
                     $str .= self::element($tpl);
                 }
-            }else{
-                foreach($tpl as $k => $v) {
-                    if(isset($v['type']) && $v['type'] == 'html'){
+            } else {
+                foreach ($tpl as $k => $v) {
+                    if (isset($v['type']) && $v['type'] == 'html') {
                         $str .= $v['html'];
-                    }else{
+                    } else {
                         $str .= self::element($v);
                     }
                 }
@@ -53,14 +53,14 @@ class table
         $arr['type'] = $arr['type'] ?? 'text';
         $arr['size'] = $arr['size'] ?? 'small';
         $html = $arr['html'];
-        if($html){ 
+        if ($html) {
             return $html;
         }
         return '<el-'.$name.' '. element_to_str($arr).'>'.self::scope($label).'</el-'.$name.'>'."\n";
     }
     public static function scope($label)
     {
-        if(strpos($label, 'scope.') !== false && strpos($label, '{') === false) {
+        if (strpos($label, 'scope.') !== false && strpos($label, '{') === false) {
             $label = "{{".$label."}}";
         }
         return $label;

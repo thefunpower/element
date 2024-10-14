@@ -109,8 +109,21 @@ echo element('table', [
 <?php 
 echo element("pager",[ 
     'data'=>'list',
-    'per_page'=>15,
+    'per_page'=>10,  
     'url'=>'/video/group/get_pager', 
+    'reload_data'=>[]
+]); 
+?> 
+~~~
+
+指定为vue变量
+~~~
+<?php 
+echo element("pager",[ 
+    'data'=>'list',
+    'per_page'=>10, 
+    'per_page_name'=>'page_size',
+    'url'=>':page_url', 
     'reload_data'=>[]
 ]); 
 ?> 

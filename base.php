@@ -9,6 +9,7 @@ class base
     {
         global $vue;
         $per_page = $arr['per_page'] ?? 10;
+        $per_page_name = $arr['per_page_name'] ?? 'per_page';
         unset($arr['per_page']);
         $js = $arr['js'] ?? '';
         unset($arr['js']);
@@ -55,27 +56,28 @@ class base
         $str = self::$js;
         if ($reload_filter) {
             foreach ($reload_filter as $re) {
-                $str .= "app.".$re."();";
+                $str .= "_this.".$re."();";
             }
         }
         if ($is_page || $filter_pager == 'pager') {
-            $str .= "app.".$total." = res.total;";
+
+            $str .= "_this.".$total." = res.total;";
         }
         $vue->data($ele, "[]");
         $vue->data($total, 0);
-        $vue->data($where, "{per_page:".$per_page.",page:1}");
+        $vue->data($where, "{".$per_page_name.":".$per_page.",page:1}");
         if (substr($url, 0, 1) == ':') {
             $url = substr($url, 1);
             $vue->method($method, "
                 ajax(this.".$url.",this.".$where.",function(res){
-                    app.".$ele." = res.data;
+                    _this.".$ele." = res.data;
                     ".$str."
                 });
             ");
         } else {
             $vue->method($method, "
                 ajax('".$url."',this.".$where.",function(res){
-                    app.".$ele." = res.data;
+                    _this.".$ele." = res.data;
                     ".$str."
                 });
             ");
@@ -91,7 +93,7 @@ class base
             $current_change = $ele."_current_change";
 
             $vue->method($size_change."(e)", "
-                this.".$where.".per_page = e;
+                this.".$where.".".$per_page_name." = e;
                 this.".$where.".page = 1;
                 this.".$method."();
             ");
@@ -99,7 +101,7 @@ class base
                 this.".$where.".page = e;
                 this.".$method."();
             ");
-            return '<el-pagination class="mb5" background layout="total,prev, pager, next" :page-size="'.$where.'.per_page"
+            return '<el-pagination class="mb5" background layout="total,prev, pager, next" :page-size="'.$where.'.'.$per_page_name.'"
                 :current-page="'.$where.'.page" @size-change="'.$size_change.'" @current-change="'.$current_change.'"
                 :total="'.$total.'"  v-if=" '.$total.' > 0">
             </el-pagination>';
